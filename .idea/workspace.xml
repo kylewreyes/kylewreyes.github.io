@@ -22,14 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="252f6cdc-ca47-4506-bddf-bf9af704b082" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/img/fencing.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/portrait.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="252f6cdc-ca47-4506-bddf-bf9af704b082" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,7 +75,7 @@
       <workItem from="1598539480124" duration="1140000" />
       <workItem from="1598544135395" duration="953000" />
       <workItem from="1598546300922" duration="1805000" />
-      <workItem from="1598584511926" duration="4402000" />
+      <workItem from="1598584511926" duration="4720000" />
     </task>
     <servers />
   </component>
