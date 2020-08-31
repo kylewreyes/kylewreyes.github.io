@@ -1,5 +1,28 @@
+@font-face {
+    font-family: Bebas Neue Bold;
+    src: url("font/BebasNeue-Bold.ttf");
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
 #home {
     width: 100%;
     height: 100%;
     background-color: gray;
+}
+
+#title {
+    margin-top: 900px;
+    font-family: Bebas Neue Bold, serif;
+    font-size: 10vw;
+    color: red;
+}
+
+#about {
+    width: 100%;
+    height: 100%;
+    background-color: white;
 }
