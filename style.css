@@ -1,6 +1,6 @@
 @font-face {
     font-family: Bebas Neue Bold;
-    src: url("font/BebasNeue-Bold.ttf");
+    src: url("font/BebasNeue/BebasNeue-Bold.ttf");
 }
 
 html, body {
@@ -15,7 +15,9 @@ html, body {
 }
 
 #title {
-    margin-top: 900px;
+    margin-top: 0;
+    padding-top: 75vh;
+    padding-left: 5vh;
     font-family: Bebas Neue Bold, serif;
     font-size: 10vw;
     color: red;
