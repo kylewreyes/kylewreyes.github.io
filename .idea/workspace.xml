@@ -58,7 +58,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/font" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -88,7 +88,7 @@
       <workItem from="1598584511926" duration="4876000" />
       <workItem from="1598630865646" duration="22000" />
       <workItem from="1598713578149" duration="4461000" />
-      <workItem from="1598848724620" duration="4600000" />
+      <workItem from="1598848724620" duration="13497000" />
     </task>
     <servers />
   </component>
@@ -116,21 +116,21 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="260" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598583886500" />
-    <state x="460" y="164" key="SettingsEditor" timestamp="1598858715985">
+    <state x="460" y="164" key="SettingsEditor" timestamp="1598936929266">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="460" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598858715985" />
-    <state x="668" y="52" width="583" height="936" key="find.popup" timestamp="1598857050311">
+    <state x="460" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598936929266" />
+    <state x="539" y="11" width="583" height="936" key="find.popup" timestamp="1598936293087">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="668" y="52" width="583" height="936" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598857050311" />
+    <state x="539" y="11" width="583" height="936" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598936293087" />
     <state x="732" y="391" width="613" height="287" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1598417785463">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="732" y="391" width="613" height="287" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598417785463" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598858602739">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598858730863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598858602739" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1598858730863" />
   </component>
 </project>
