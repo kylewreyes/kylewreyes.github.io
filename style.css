@@ -19,14 +19,26 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: #29303e;
+    position: relative;
+    /*background-color: white;*/
+    /*border-top: 1px solid transparent;*/
 }
 
 h1 {
-    margin-top: 0;
-    margin-left: 3vh;
-    padding-top: 55vh;
+    /*padding: 65vh 0 3vh 3vh;*/
+    margin: 0 0 0 0;
+    position: absolute;
+    left: 3vh;
+    bottom: 2vh;
+    /*bottom: 0;*/
+    /*margin-top: 55vh;*/
+    /*margin-left: 3vh;*/
+    /*margin-bottom: 10vh;*/
+    /*padding-top: 55vh;*/
+    /*padding-bottom: 10vh;*/
+    /*margin-bottom: 10vh;*/
     font-family: Bebas Neue Thin, sans-serif;
-    font-size: 30vh;
+    font-size: 15vw;
     color: red;
 }
 
@@ -39,8 +51,8 @@ h2 {
 }
 
 #about {
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     background-color: lightgray;
 }
 
