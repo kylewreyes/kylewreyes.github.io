@@ -1,6 +1,12 @@
 @font-face {
+    font-family: Bebas Neue Book;
+    src: url("font/BebasNeue/BebasNeue-Book.ttf");
+    font-weight: normal;
+}
+
+@font-face {
     font-family: Bebas Neue Thin;
-    src: url("font/BebasNeue/BebasNeue-Thin.ttf");
+    src: url("font/BebasNeue/BebasNeue-Light.ttf");
     font-weight: normal;
 }
 
@@ -20,16 +26,45 @@ html, body {
     height: 100%;
     background-color: #29303e;
     position: relative;
-    /*background-color: white;*/
-    /*border-top: 1px solid transparent;*/
+}
+
+.title-page {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+}
+
+#navbar {
+    background-color: #29303e;
+}
+
+#portrait {
+    padding: 5vh 0 0 7vh; /* top right bottom left */
+    max-width: 100%;
+    height: auto;
+}
+
+
+#intro {
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*left: 0;*/
+    font-family: Bebas Neue Thin, sans-serif;
+    color: white;
+    font-size: 5vw;
+    /*text-align: center;*/
 }
 
 h1 {
     /*padding: 65vh 0 3vh 3vh;*/
-    margin: 0 0 0 0;
-    position: absolute;
-    left: 3vh;
-    bottom: 2vh;
+    /*margin: 0 0 0 0;*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*left: 0;*/
+    /*text-align: center;*/
+    /*left: 50vh;*/
+    /*bottom: 2vh;*/
     /*bottom: 0;*/
     /*margin-top: 55vh;*/
     /*margin-left: 3vh;*/
@@ -37,7 +72,7 @@ h1 {
     /*padding-top: 55vh;*/
     /*padding-bottom: 10vh;*/
     /*margin-bottom: 10vh;*/
-    font-family: Bebas Neue Thin, sans-serif;
+    font-family: Bebas Neue Book, sans-serif;
     font-size: 15vw;
     color: red;
 }
