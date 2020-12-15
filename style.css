@@ -35,8 +35,10 @@ html, body {
     text-align: center;
 }
 
-#navbar {
-    background-color: #29303e;
+.logos {
+    color: white;
+    font-size: 2vw;
+    margin-top: 60vh;
 }
 
 #portrait {
