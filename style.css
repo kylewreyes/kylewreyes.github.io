@@ -21,62 +21,52 @@ html, body {
     margin: 0;
 }
 
-#home {
+#home-bg {
     width: 100%;
     height: 100%;
     background-color: #29303e;
-    position: relative;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .title-page {
-    position: absolute;
     width: 100%;
     left: 0;
     text-align: center;
 }
 
+#intro {
+    margin-top: 0;
+    margin-bottom: 0;
+    /*padding-top: 20vh;*/
+    font-family: Simplifica, sans-serif;
+    color: white;
+    font-size: 5vw;
+}
+
+h1 {
+    font-family: Bebas Neue Book, sans-serif;
+    font-size: 15vw;
+    color: red;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    bottom: 30px;
+}
+
 .logos {
     color: white;
-    font-size: 2vw;
-    margin-top: 60vh;
+    font-size: 3vw;
+    padding: 0 10px 0 10px;
+    /*margin-top: 60vh;*/
 }
 
 #portrait {
     padding: 5vh 0 0 7vh; /* top right bottom left */
     max-width: 100%;
     height: auto;
-}
-
-
-#intro {
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*left: 0;*/
-    font-family: Bebas Neue Thin, sans-serif;
-    color: white;
-    font-size: 5vw;
-    /*text-align: center;*/
-}
-
-h1 {
-    /*padding: 65vh 0 3vh 3vh;*/
-    /*margin: 0 0 0 0;*/
-    /*position: absolute;*/
-    /*width: 100%;*/
-    /*left: 0;*/
-    /*text-align: center;*/
-    /*left: 50vh;*/
-    /*bottom: 2vh;*/
-    /*bottom: 0;*/
-    /*margin-top: 55vh;*/
-    /*margin-left: 3vh;*/
-    /*margin-bottom: 10vh;*/
-    /*padding-top: 55vh;*/
-    /*padding-bottom: 10vh;*/
-    /*margin-bottom: 10vh;*/
-    font-family: Bebas Neue Book, sans-serif;
-    font-size: 15vw;
-    color: red;
 }
 
 h2 {
