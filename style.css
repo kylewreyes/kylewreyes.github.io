@@ -21,6 +21,14 @@ html, body {
     margin: 0;
 }
 
+body { /* For iPhone landscape */
+    padding:
+            env(safe-area-inset-top)
+            env(safe-area-inset-right)
+            env(safe-area-inset-bottom)
+            env(safe-area-inset-left);
+}
+
 /*
 TODO:
  - FIX BUG WITH NOT SEEING INTRO
@@ -125,12 +133,15 @@ h2 {
     h1 {
         font-size: 10rem;
     }
+
     h2 {
         font-size: 5em;
     }
+
     #intro {
         font-size: 3em;
     }
+
     .content {
         font-size: 1rem;
     }
