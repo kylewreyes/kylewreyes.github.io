@@ -23,7 +23,7 @@ html, body {
 
 /*
 TODO:
- - MAKE ABOUT ME CENTERED
+ - FIX BUG WITH NOT SEEING INTRO
  - STICKY NAVBAR
  */
 
@@ -54,7 +54,7 @@ TODO:
 
 h1 {
     font-family: Bebas Neue Book, sans-serif;
-    font-size: 16rem;
+    font-size: 15rem;
     /*font-size: min(max(75px, 18rem), 850px);*/
     /*font-size: 350px;*/
     /*font-size: 75px;*/
@@ -127,6 +127,9 @@ h2 {
     }
     h2 {
         font-size: 5em;
+    }
+    #intro {
+        font-size: 3em;
     }
     .content {
         font-size: 1rem;
