@@ -21,13 +21,13 @@ html, body {
     margin: 0;
 }
 
-body { /* For iPhone landscape */
-    padding:
-            env(safe-area-inset-top)
-            env(safe-area-inset-right)
-            env(safe-area-inset-bottom)
-            env(safe-area-inset-left);
-}
+/*body { !* For iPhone landscape *!*/
+/*    padding:*/
+/*            env(safe-area-inset-top)*/
+/*            env(safe-area-inset-right)*/
+/*            env(safe-area-inset-bottom)*/
+/*            env(safe-area-inset-left);*/
+/*}*/
 
 /*
 TODO:
@@ -38,8 +38,10 @@ TODO:
 #home-bg {
     width: 100%;
     height: 100%;
+    /*padding-top: 2vh;*/
     background-color: #29303e;
     display: flex;
+    flex-wrap: wrap; /* Ensures that top doesn't break */
     flex-direction: column;
     justify-content: center;
     /* This is so that the background color will also cover oversized content */
@@ -128,6 +130,10 @@ h2 {
     /*display: flex;*/
     /*flex-wrap: wrap;*/
 }
+
+/*@media screen and (max-height: ) {*/
+
+/*}*/
 
 @media screen and (max-width: 850px) {
     h1 {
