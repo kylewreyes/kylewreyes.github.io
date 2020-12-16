@@ -21,13 +21,13 @@ html, body {
     margin: 0;
 }
 
-/*body { !* For iPhone landscape *!*/
-/*    padding:*/
-/*            env(safe-area-inset-top)*/
-/*            env(safe-area-inset-right)*/
-/*            env(safe-area-inset-bottom)*/
-/*            env(safe-area-inset-left);*/
-/*}*/
+body { /* For iPhone */
+    padding:
+            env(safe-area-inset-top)
+            env(safe-area-inset-right)
+            env(safe-area-inset-bottom)
+            env(safe-area-inset-left);
+}
 
 /*
 TODO:
@@ -41,7 +41,7 @@ TODO:
     /*padding-top: 2vh;*/
     background-color: #29303e;
     display: flex;
-    flex-wrap: wrap; /* Ensures that top doesn't break */
+    /*flex-wrap: wrap; !* Ensures that top doesn't break *!*/
     flex-direction: column;
     justify-content: center;
     /* This is so that the background color will also cover oversized content */
