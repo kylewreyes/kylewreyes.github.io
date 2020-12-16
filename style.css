@@ -1,6 +1,6 @@
 @font-face {
     font-family: Bebas Neue Book;
-    src: url("font/BebasNeue/BebasNeue-Book.ttf");
+    src: url("font/BebasNeue/BebasNeue-Bold.ttf");
     font-weight: normal;
 }
 
@@ -65,8 +65,22 @@ h1 {
 #about {
     background-color: lightgray;
     display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin: 0 0 0 0;
+    padding-top: 50px;
+    padding-left: 50%;
+    font-family: Bebas Neue Thin, sans-serif;
+    font-size: 10vw;
+    color: red;
+}
+
+#about-row {
+    display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .column {
@@ -82,16 +96,7 @@ h1 {
     margin: 5vh auto auto;
 }
 
-h2 {
-    margin-top: 5vh;
-    font-family: Bebas Neue Thin, sans-serif;
-    font-size: 10vw;
-    color: red;
-    width: 80%;
-}
-
 .content {
-    /*font-family: 'JetBrains Mono', monospace;*/
     font-family: 'Poppins', sans-serif;
-    font-size: 3vw;
+    font-size: 2vw;
 }
