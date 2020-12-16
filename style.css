@@ -21,14 +21,21 @@ html, body {
     margin: 0;
 }
 
+/*
+TODO:
+ - MAKE ABOUT ME CENTERED
+ - STICKY NAVBAR
+ */
+
 #home-bg {
     width: 100%;
     height: 100%;
     background-color: #29303e;
-    /*position: relative;*/
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* This is so that the background color will also cover oversized content */
+    overflow: auto;
 }
 
 .title-page {
@@ -40,15 +47,17 @@ html, body {
 #intro {
     margin-top: 0;
     margin-bottom: 0;
-    /*padding-top: 20vh;*/
     font-family: Simplifica, sans-serif;
     color: white;
-    font-size: 5vw;
+    font-size: 5rem;
 }
 
 h1 {
     font-family: Bebas Neue Book, sans-serif;
-    font-size: 15vw;
+    font-size: 16rem;
+    /*font-size: min(max(75px, 18rem), 850px);*/
+    /*font-size: 350px;*/
+    /*font-size: 75px;*/
     color: red;
     margin-top: 0;
     margin-bottom: 0;
@@ -59,7 +68,7 @@ h1 {
 
 .logos {
     color: white;
-    font-size: 3vw;
+    font-size: 3rem;
     padding: 0 10px 0 10px;
 }
 
@@ -71,17 +80,19 @@ h1 {
 
 h2 {
     margin: 0 0 0 0;
-    padding-top: 1.5vh;
-    padding-left: 52vw;
+    padding-top: 3vh;
+    /*padding-left: 52vw;*/
     font-family: Bebas Neue Thin, sans-serif;
-    font-size: 7vw;
+    font-size: 7.5rem;
     color: red;
+    text-align: center;
 }
 
 #about-row {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5vh;
 }
 
 .column {
@@ -91,8 +102,7 @@ h2 {
 
 #portrait {
     /*padding: 5vh 0 0 7vh; !* top right bottom left *!*/
-    /*margin-left: 65%;*/
-    max-width: 30%;
+    max-width: 40%;
     height: auto;
     float: right;
     margin-right: 2vw;
@@ -100,8 +110,25 @@ h2 {
 
 .content {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.5vw;
+    font-size: 2rem;
     margin-top: 0;
     padding-left: 2vw;
     padding-right: 8vw;
+}
+
+#experience {
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+}
+
+@media screen and (max-width: 850px) {
+    h1 {
+        font-size: 10rem;
+    }
+    h2 {
+        font-size: 5em;
+    }
+    .content {
+        font-size: 1rem;
+    }
 }
