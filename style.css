@@ -5,7 +5,7 @@
 }
 
 @font-face {
-    font-family: Bebas Neue Thin;
+    font-family: Bebas Neue Light;
     src: url("font/BebasNeue/BebasNeue-Light.ttf");
     font-weight: normal;
 }
@@ -16,12 +16,16 @@
     font-weight: normal;
 }
 
+/* Included 2 font-size declarations in case clamp() is not supported by
+browser */
+
 html, body {
     height: 100%;
     margin: 0;
 }
 
-body { /* For iPhone */
+body { /* For iPhone notch */
+    background-color: #29303e;
     padding:
             env(safe-area-inset-top)
             env(safe-area-inset-right)
@@ -31,21 +35,22 @@ body { /* For iPhone */
 
 /*
 TODO:
- - FIX BUG WITH NOT SEEING INTRO
- - STICKY NAVBAR
+ 1. REPLACE FONTS WITH CLAMP
+ * STICKY NAVBAR
  */
 
-#home-bg {
-    width: 100%;
-    height: 100%;
-    /*padding-top: 2vh;*/
-    background-color: #29303e;
+.section-container {
+    min-width: 100%;
     display: flex;
-    /*flex-wrap: wrap; !* Ensures that top doesn't break *!*/
     flex-direction: column;
     justify-content: center;
     /* This is so that the background color will also cover oversized content */
     overflow: auto;
+}
+
+#home-bg {
+    min-height: 100%;
+    background-color: #29303e;
 }
 
 .title-page {
@@ -60,14 +65,13 @@ TODO:
     font-family: Simplifica, sans-serif;
     color: white;
     font-size: 5rem;
+    font-size: clamp(3rem, 3rem + 1vw, 6rem);
 }
 
 h1 {
     font-family: Bebas Neue Book, sans-serif;
     font-size: 15rem;
-    /*font-size: min(max(75px, 18rem), 850px);*/
-    /*font-size: 350px;*/
-    /*font-size: 75px;*/
+    font-size: clamp(10rem, 10rem + 3vw, 20rem);
     color: red;
     margin-top: 0;
     margin-bottom: 0;
@@ -79,76 +83,77 @@ h1 {
 .logos {
     color: white;
     font-size: 3rem;
-    padding: 0 10px 0 10px;
+    font-size: clamp(3rem, 3rem + 1vw, 5rem);
+    padding: 0 10px 20px 10px;
 }
 
 #about {
     background-color: lightgray;
-    display: flex;
-    flex-direction: column;
 }
 
 h2 {
     margin: 0 0 0 0;
     padding-top: 3vh;
-    /*padding-left: 52vw;*/
-    font-family: Bebas Neue Thin, sans-serif;
+    font-family: Bebas Neue Light, sans-serif;
     font-size: 7.5rem;
+    font-size: clamp(5rem, 5rem + 2vw, 10rem);
     color: red;
     text-align: center;
 }
 
 #about-row {
     display: flex;
+    /*flex-wrap: wrap;*/
     justify-content: center;
     align-items: center;
-    margin-bottom: 5vh;
+    margin: 0 10vw 5vh 10vw;
+    /*margin-bottom: 5vh;*/
 }
 
 .column {
-    flex-grow: 1;
-    flex-basis: 0;
+    flex: 1;
+    /*align-self: stretch;*/
+    /*flex-grow: 1;*/
+    /*flex-basis: 0;*/
 }
 
 #portrait {
     /*padding: 5vh 0 0 7vh; !* top right bottom left *!*/
-    max-width: 40%;
+    min-width: 200px;
+    width: 200px;
+    max-width: 4912px; /* 4912px is the original size of the image */
     height: auto;
-    float: right;
-    margin-right: 2vw;
+    /*float: right;*/
+    /*margin-right: 2vw;*/
 }
 
 .content {
     font-family: 'Poppins', sans-serif;
     font-size: 2rem;
+    font-size: clamp(1rem, 1rem + 0.5vw, 3rem);
     margin-top: 0;
     padding-left: 2vw;
     padding-right: 8vw;
 }
 
 #experience {
-    /*display: flex;*/
-    /*flex-wrap: wrap;*/
+    background-color: white;
 }
 
-/*@media screen and (max-height: ) {*/
+/*@media screen and (max-width: 850px) {*/
+/*    h1 {*/
+/*        font-size: 10rem;*/
+/*    }*/
 
+/*    h2 {*/
+/*        font-size: 5em;*/
+/*    }*/
+
+/*    #intro {*/
+/*        font-size: 3em;*/
+/*    }*/
+
+/*    .content {*/
+/*        font-size: 1rem;*/
+/*    }*/
 /*}*/
-
-@media screen and (max-width: 850px) {
-    h1 {
-        font-size: 10rem;
-    }
-
-    h2 {
-        font-size: 5em;
-    }
-
-    #intro {
-        font-size: 3em;
-    }
-
-    .content {
-        font-size: 1rem;
-    }
-}
