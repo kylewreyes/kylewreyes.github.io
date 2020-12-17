@@ -1,12 +1,6 @@
 @font-face {
-    font-family: Bebas Neue Book;
-    src: url("font/BebasNeue/BebasNeue-Book.ttf");
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: Bebas Neue Light;
-    src: url("font/BebasNeue/BebasNeue-Light.ttf");
+    font-family: Bebas Neue Regular;
+    src: url("font/BebasNeue/BebasNeue-Regular.ttf");
     font-weight: normal;
 }
 
@@ -35,7 +29,7 @@ body { /* For iPhone notch */
 
 /*
 TODO:
- 1. REPLACE FONTS WITH CLAMP
+ 1. LEARN CSS GRID
  * STICKY NAVBAR
  */
 
@@ -69,10 +63,11 @@ TODO:
 }
 
 h1 {
-    font-family: Bebas Neue Book, sans-serif;
+    font-family: Bebas Neue Regular, sans-serif;
     font-size: 15rem;
+    letter-spacing: 0.5vw;
     font-size: clamp(10rem, 10rem + 3vw, 20rem);
-    color: red;
+    color: #e71c12;
     margin-top: 0;
     margin-bottom: 0;
     /* TODO: Adjust the spacing above the title */
@@ -94,10 +89,12 @@ h1 {
 h2 {
     margin: 0 0 0 0;
     padding-top: 3vh;
-    font-family: Bebas Neue Light, sans-serif;
+    font-family: Bebas Neue  Regular, sans-serif;
     font-size: 7.5rem;
+    letter-spacing: 0.3vw;
     font-size: clamp(5rem, 5rem + 2vw, 10rem);
-    color: red;
+    color: #e71c12;
+    /*color: red;*/
     text-align: center;
 }
 
@@ -137,7 +134,7 @@ h2 {
 }
 
 #experience {
-    background-color: white;
+    background-color: darkgray;
 }
 
 /*@media screen and (max-width: 850px) {*/
