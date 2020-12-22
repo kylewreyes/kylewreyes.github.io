@@ -29,7 +29,6 @@ body { /* For iPhone notch */
 
 /*
 TODO:
- 1. LEARN CSS GRID
  * STICKY NAVBAR
  */
 
@@ -95,7 +94,9 @@ h2 {
     font-size: 7.5rem;
     letter-spacing: 0.3vw;
     font-size: clamp(5rem, 5rem + 1.5vw, 10rem);
-    color: #e71c12;
+    /*color: #e71c12;*/
+    color: #e32121; /* good for light gray */
+    color:
     text-align: center;
 }
 
@@ -134,16 +135,32 @@ h2 {
 }
 
 #education {
+    /*background-color: #696969;*/
     background-color: darkgray;
+}
+
+.course-container {
+    background-color: white;
 }
 
 #courses {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-gap: 1vw;
     margin: 3vh 0 3vh 0;
     min-width: 350px;
     max-width: 60vw;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-size: clamp(1rem, 1rem + 0.3vw, 2rem);
+}
+
+.course-title {
+    padding-left: 15px;
+}
+
+a:link, a:visited {
+    color: black;
 }
 
 #experience {
