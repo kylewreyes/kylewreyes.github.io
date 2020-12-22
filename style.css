@@ -37,9 +37,14 @@ TODO:
     min-width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* centered along main axis (vertically) */
+    align-items: center; /* centered along main axis (horizontally) */
     /* This is so that the background color will also cover oversized content */
     overflow: auto;
+}
+
+.non-title-container {
+    padding: 3vh 0 3vh 0;
 }
 
 #home-bg {
@@ -65,14 +70,11 @@ TODO:
 h1 {
     font-family: Bebas Neue Regular, sans-serif;
     font-size: 15rem;
-    letter-spacing: 0.5vw;
+    letter-spacing: 0.3vw;
     font-size: clamp(10rem, 10rem + 3vw, 20rem);
     color: #e71c12;
     margin-top: 0;
     margin-bottom: 0;
-    /* TODO: Adjust the spacing above the title */
-    /*position: relative;*/
-    /*bottom: 15px;*/
 }
 
 .logos {
@@ -88,40 +90,39 @@ h1 {
 
 h2 {
     margin: 0 0 0 0;
-    padding-top: 3vh;
+    /*padding-top: 3vh;*/
     font-family: Bebas Neue  Regular, sans-serif;
     font-size: 7.5rem;
     letter-spacing: 0.3vw;
-    font-size: clamp(5rem, 5rem + 2vw, 10rem);
+    font-size: clamp(5rem, 5rem + 1.5vw, 10rem);
     color: #e71c12;
-    /*color: red;*/
     text-align: center;
 }
 
-#about-row {
-    display: flex;
-    /*flex-wrap: wrap;*/
-    justify-content: center;
-    align-items: center;
-    margin: 0 10vw 5vh 10vw;
-    /*margin-bottom: 5vh;*/
+#about-img {
+    text-align: center;
 }
 
-.column {
-    flex: 1;
-    /*align-self: stretch;*/
-    /*flex-grow: 1;*/
-    /*flex-basis: 0;*/
+#about-grid {
+    display: grid;
+    /*padding: 0 20vh 0 20vh;*/
+    /*grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));*/
+    grid-template-columns: auto 1fr;
+    /*grid-template-rows: repeat(2, auto);*/
+    grid-gap: 1vw;
+    /*min-width: 60vw;*/
+    margin-top: 3vh;
+    /*margin: 3vh 0 3vh 0;*/
+    min-width: 350px;
+    max-width: 60vw;
 }
 
 #portrait {
     /*padding: 5vh 0 0 7vh; !* top right bottom left *!*/
-    min-width: 200px;
-    width: 200px;
-    max-width: 4912px; /* 4912px is the original size of the image */
-    height: auto;
-    /*float: right;*/
-    /*margin-right: 2vw;*/
+    min-height: 300px;
+    height: 55vh;
+    max-height: 7360px;
+    width: auto;
 }
 
 .content {
@@ -129,28 +130,30 @@ h2 {
     font-size: 2rem;
     font-size: clamp(1rem, 1rem + 0.5vw, 3rem);
     margin-top: 0;
-    padding-left: 2vw;
-    padding-right: 8vw;
+    padding: 0 25px 0 25px;
 }
 
-#experience {
+#education {
     background-color: darkgray;
 }
 
-/*@media screen and (max-width: 850px) {*/
-/*    h1 {*/
-/*        font-size: 10rem;*/
-/*    }*/
+#courses {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 1vw;
+    margin: 3vh 0 3vh 0;
+    min-width: 350px;
+    max-width: 60vw;
+}
 
-/*    h2 {*/
-/*        font-size: 5em;*/
-/*    }*/
+#experience {
+    background-color: lightgray;
+}
 
-/*    #intro {*/
-/*        font-size: 3em;*/
-/*    }*/
-
-/*    .content {*/
-/*        font-size: 1rem;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 1050px) {
+    #about-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, minmax(325px, 1fr));
+        grid-gap: 1vh;
+    }
+}
