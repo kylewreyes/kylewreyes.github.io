@@ -141,6 +141,7 @@ h2 {
 
 .course-container {
     background-color: white;
+    padding-right: 20px;
 }
 
 #courses {
@@ -156,7 +157,7 @@ h2 {
 }
 
 .course-title {
-    padding-left: 15px;
+    padding-left: 20px;
 }
 
 a:link, a:visited {
@@ -172,5 +173,8 @@ a:link, a:visited {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, minmax(325px, 1fr));
         grid-gap: 1vh;
+    }
+    .content {
+        text-align: center;
     }
 }
