@@ -96,7 +96,6 @@ h2 {
     font-size: clamp(5rem, 5rem + 1.5vw, 10rem);
     /*color: #e71c12;*/
     color: #e32121; /* good for light gray */
-    color:
     text-align: center;
 }
 
@@ -168,7 +167,7 @@ a:link, a:visited {
     background-color: lightgray;
 }
 
-@media screen and (max-width: 1050px) {
+@media screen and (max-width: 1250px) {
     #about-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(2, minmax(325px, 1fr));
