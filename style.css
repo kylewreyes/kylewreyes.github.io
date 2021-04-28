@@ -10,16 +10,13 @@
     font-weight: normal;
 }
 
-/* Included 2 font-size declarations in case clamp() is not supported by
-browser */
-
 html, body {
     height: 100%;
     margin: 0;
 }
 
 body { /* For iPhone notch */
-    background-color: #29303e;
+    background-color: #292929;
     padding:
             env(safe-area-inset-top)
             env(safe-area-inset-right)
@@ -48,7 +45,7 @@ TODO:
 
 #home-bg {
     min-height: 100%;
-    background-color: #29303e;
+    background-color: #292929;
 }
 
 .title-page {
@@ -62,23 +59,21 @@ TODO:
     margin-bottom: 0;
     font-family: Simplifica, sans-serif;
     color: white;
-    font-size: 5rem;
     font-size: clamp(3rem, 3rem + 1vw, 6rem);
 }
 
 h1 {
     font-family: Bebas Neue Regular, sans-serif;
-    font-size: 15rem;
     letter-spacing: 0.3vw;
     font-size: clamp(10rem, 10rem + 3vw, 20rem);
-    color: #e71c12;
+    /* color: black; */
+    color: #DB162F;
     margin-top: 0;
     margin-bottom: 0;
 }
 
 .logos {
     color: white;
-    font-size: 3rem;
     font-size: clamp(3rem, 3rem + 1vw, 5rem);
     padding: 0 10px 20px 10px;
 }
@@ -89,14 +84,14 @@ h1 {
 
 h2 {
     margin: 0 0 0 0;
-    /*padding-top: 3vh;*/
     font-family: Bebas Neue  Regular, sans-serif;
-    font-size: 7.5rem;
     letter-spacing: 0.3vw;
-    font-size: clamp(5rem, 5rem + 1.5vw, 10rem);
-    /*color: #e71c12;*/
-    color: #e32121; /* good for light gray */
+    font-size: clamp(4rem, 4rem + 2vw, 10rem);
     text-align: center;
+}
+
+#about-title {
+    color: #DB162F;
 }
 
 #about-img {
@@ -127,15 +122,17 @@ h2 {
 
 .content {
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
     font-size: clamp(1rem, 1rem + 0.5vw, 3rem);
     margin-top: 0;
     padding: 0 25px 0 25px;
 }
 
 #education {
-    /*background-color: #696969;*/
     background-color: darkgray;
+}
+
+#education-title {
+    color: #292929;
 }
 
 .course-container {
@@ -151,7 +148,6 @@ h2 {
     min-width: 350px;
     max-width: 60vw;
     font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
     font-size: clamp(1rem, 1rem + 0.3vw, 2rem);
 }
 
@@ -159,14 +155,69 @@ h2 {
     padding-left: 20px;
 }
 
+a {
+    text-decoration: none;
+}
+
 a:link, a:visited {
     color: black;
 }
 
+a:hover {
+    color: #DB162F;
+}
+
+li {
+    padding-right: 15px;
+}
+
 #experience {
+    background-color: #DB162F;
+    /* background-color: lightgray; */
+}
+
+#experience-title {
+    color: white;
+}
+
+.experience-box {
+    margin: 2vh 0 2vh 0;
+    min-width: 350px;
+    width: 55vw;
+    background-color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1rem, 1rem + 0.3vw, 2rem);
+}
+
+.experience-tab {
+    background-color: darkgray;
+    padding: 1vh 1vw 1vh 1vw;
+    color: black;
+    display: grid;
+    grid-template-columns: minmax(250px, 1.5fr) minmax(220px, 1fr);
+    grid-template-rows: repeat(2, minmax(10px, 1fr));
+}
+
+.experience-right {
+    text-align: right;
+}
+
+
+#projects {
     background-color: lightgray;
 }
 
+#projects-title {
+    color: #292929;
+}
+
+.projects-tab {
+    background-color: darkgray;
+    padding: 1vh 1vw 1vh 1vw;
+    color: black;
+}
+
+/* For the coursework section */
 @media screen and (max-width: 1250px) {
     #about-grid {
         grid-template-columns: 1fr;
@@ -175,5 +226,17 @@ a:link, a:visited {
     }
     .content {
         text-align: center;
+    }
+}
+
+/* For the experience section */
+@media screen and (max-width: 1100px) {
+    .experience-tab {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, minmax(10px, 1fr));
+    }
+
+    .experience-right {
+        text-align: left;
     }
 }
