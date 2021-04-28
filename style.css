@@ -173,7 +173,6 @@ li {
 
 #experience {
     background-color: #DB162F;
-    /* background-color: lightgray; */
 }
 
 #experience-title {
@@ -204,7 +203,7 @@ li {
 
 
 #projects {
-    background-color: lightgray;
+    background-color: darkgray;
 }
 
 #projects-title {
@@ -212,9 +211,25 @@ li {
 }
 
 .projects-tab {
-    background-color: darkgray;
+    background-color: #292929;
     padding: 1vh 1vw 1vh 1vw;
-    color: black;
+    color: white;
+}
+
+a.projects-tab-text:link, a.projects-tab-text:visited {
+    color: white;
+}
+
+a.projects-tab-text:hover {
+    color: #DB162F;
+}
+
+#fencing {
+    background-color: lightgray;
+}
+
+#fencing-title {
+    color: #DB162F;
 }
 
 /* For the coursework section */
