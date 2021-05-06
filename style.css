@@ -26,12 +26,14 @@ body { /* For iPhone notch */
 
 /*
 TODO:
+* Use CSS to edit padding when using iPhone
+ * ADD PADDING TO SECTION CONTAINER TO NOT HAVE TO WORRY ABOUT THIS FOR EACH SECTION
  * STICKY NAVBAR
  */
 
 .section-container {
     min-width: 100%;
-    display: flex; /* This causes issues with iframe */
+    display: flex;
     flex-direction: column;
     justify-content: center; /* centered along main axis (vertically) */
     align-items: center; /* centered along main axis (horizontally) */
@@ -40,7 +42,10 @@ TODO:
 }
 
 .non-title-container {
-    padding: 3vh 0 3vh 0;
+    padding: max(30px, 3vh) 20vw;
+    /* This allows the total size of the element to remain constant. So, if you
+    increase the padding, the size of the actual element decreases */
+    box-sizing: border-box;
 }
 
 #home-bg {
@@ -75,6 +80,14 @@ h1 {
     color: white;
     font-size: clamp(3rem, 3rem + 1vw, 5rem);
     padding: 0 10px 20px 10px;
+}
+
+#arrow-down {
+    color: white;
+    font-size: clamp(3rem, 3rem + 1vw, 5rem);
+    position: absolute;
+    top: 92vh;
+    right: min(50px, 75vw);
 }
 
 #about {
@@ -141,10 +154,10 @@ h2 {
 
 #courses {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: 1vw;
     margin: 3vh 0 3vh 0;
-    min-width: 350px;
+    min-width: 300px;
     max-width: 60vw;
     font-family: 'Poppins', sans-serif;
     font-size: clamp(1rem, 1rem + 0.3vw, 2rem);
@@ -180,7 +193,7 @@ li {
 
 .experience-box {
     margin: 2vh 0 2vh 0;
-    min-width: 350px;
+    min-width: 300px;
     width: 55vw;
     background-color: white;
     font-family: 'Poppins', sans-serif;
@@ -227,7 +240,6 @@ a.projects-tab-text:hover {
     background-color: lightgray;
     min-height: 100%;
     justify-content: flex-start;
-    padding-bottom: 0;
 }
 
 #fencing-title {
@@ -237,7 +249,6 @@ a.projects-tab-text:hover {
 .video-container {
     position: relative;
     overflow: hidden;
-    /* width: 100%; */
     width: 55vw;
     min-width: 300px;
     padding-top: max(169px, 31vw); /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
@@ -256,7 +267,7 @@ a.projects-tab-text:hover {
 
 
 #fencing-info {
-    min-width: 350px;
+    min-width: 300px;
     width: 55vw;
     text-align: center;
     margin-bottom: 50px;
@@ -266,7 +277,8 @@ a.projects-tab-text:hover {
 @media screen and (max-width: 1250px) {
     #about-grid {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, minmax(325px, 1fr));
+        grid-template-rows: auto;
+        /* grid-template-rows: repeat(2, minmax(325px, 1fr)); */
         grid-gap: 1vh;
     }
     .content {
@@ -278,10 +290,16 @@ a.projects-tab-text:hover {
 @media screen and (max-width: 1100px) {
     .experience-tab {
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, minmax(10px, 1fr));
+        grid-template-rows: repeat(4, auto);
     }
 
     .experience-right {
         text-align: left;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .non-title-container {
+        padding: max(30px, 3vh) 30px;
     }
 }
