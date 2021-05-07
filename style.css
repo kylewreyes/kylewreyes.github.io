@@ -10,8 +10,11 @@
     font-weight: normal;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html, body {
-    height: 100%;
     margin: 0;
 }
 
@@ -26,9 +29,7 @@ body { /* For iPhone notch */
 
 /*
 TODO:
-* Use CSS to edit padding when using iPhone
- * ADD PADDING TO SECTION CONTAINER TO NOT HAVE TO WORRY ABOUT THIS FOR EACH SECTION
- * STICKY NAVBAR
+ * Mobile navbar
  */
 
 .section-container {
@@ -48,8 +49,8 @@ TODO:
     box-sizing: border-box;
 }
 
-#home-bg {
-    min-height: 100%;
+#home {
+    height: 100vh;
     background-color: #292929;
 }
 
@@ -82,13 +83,73 @@ h1 {
     padding: 0 10px 20px 10px;
 }
 
-#arrow-down {
-    color: white;
-    font-size: clamp(3rem, 3rem + 1vw, 5rem);
+#arrow-box {
     position: absolute;
-    top: 92vh;
-    right: min(50px, 75vw);
+    bottom: 0;
+    left: 6.5vw;
+    background-color: white;
+    width: max(6vw, 100px);
+    height: calc(0.6 * max(6vw, 100px)); /* To preserve aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#arrow-down {
+    color: black;
+    font-size: clamp(2rem, 1.5rem + 0.2vw, 4rem);
+    position: absolute;
+}
+
+#navbar {
+    background-color: #292929;
+    width: max(6vw, 100px);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: Bebas Neue Regular, sans-serif;
+    font-size: clamp(1.5rem, 1.5rem + 0.2vw, 3rem);
+}
+
+/* Need to be more specific to override a:link */
+#navbar a.navbar-link {
+    width: max(6vw, 100px);
+    color: white;
+    height: calc(0.6 * max(6vw, 100px)); /* To preserve aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.active-navbar-link {
+    background-color: white;
+}
+
+#navbar a.active-navbar-link {
+    color: black;
+}
+
+#navbar a.active-navbar-link:hover {
+    color: darkgray;
+}
+
+#navbar a.navbar-link:hover {
+    color: darkgray;
+}
+
+/* Both below are for the navbar */
+
+.absolute {
+    position: absolute;
+    top: 100vh;
+    left: 6.5vw;
+}
+
+.sticky {
+    position: fixed;
+    top: calc(0.6 * max(6vw, 100px) + 20px);
+    left: 6.5vw;
+  }
 
 #about {
     background-color: lightgray;
@@ -112,12 +173,8 @@ h2 {
 
 #about-grid {
     display: grid;
-    /*padding: 0 20vh 0 20vh;*/
-    /*grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));*/
     grid-template-columns: auto 1fr;
-    /*grid-template-rows: repeat(2, auto);*/
     grid-gap: 1vw;
-    /*min-width: 60vw;*/
     margin-top: 3vh;
     /*margin: 3vh 0 3vh 0;*/
     min-width: 350px;
@@ -125,7 +182,6 @@ h2 {
 }
 
 #portrait {
-    /*padding: 5vh 0 0 7vh; !* top right bottom left *!*/
     min-height: 300px;
     height: 55vh;
     max-height: 7360px;
@@ -238,7 +294,7 @@ a.projects-tab-text:hover {
 
 #fencing {
     background-color: lightgray;
-    min-height: 100%;
+    height: 100vh;
     justify-content: flex-start;
 }
 
@@ -274,7 +330,7 @@ a.projects-tab-text:hover {
 }
 
 /* For the coursework section */
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1260px) {
     #about-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;

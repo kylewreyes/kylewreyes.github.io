@@ -10,10 +10,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a7195c6079.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
 </head>
 
 <body>
-    <section id="home-bg" class="section-container">
+    <section id="home" class="section-container">
         <p class="title-page" id="intro">Hi, I'm</p>
         <h1 class="title-page"><u>KYLE REYES</u></h1>
         <nav id="logo-div" class="title-page">
@@ -26,8 +27,19 @@
             <a href="https://github.com/kylewreyes" target="_blank" rel="noopener noreferrer"><i
                     class="fab fa-github logos"></i></a>
         </nav>
-        <i id="arrow-down" class="fas fa-chevron-down"></i>
+        <a id="arrow-box" href="#about">
+            <i id="arrow-down" class="fas fa-chevron-down"></i>
+        </a>
     </section>
+
+    <nav id="navbar" class="absolute">
+        <a class="navbar-link" href="#home">Home</a>
+        <a class="navbar-link" href="#about">About</a>
+        <a class="navbar-link" href="#education">Courses</a>
+        <a class="navbar-link" href="#experience">Work</a>
+        <a class="navbar-link" href="#projects">Projects</a>
+        <a class="navbar-link" href="#fencing">Fencing</a>
+    </nav>
 
     <section id="about" class="section-container non-title-container">
         <h2 id="about-title">About Me</h2>
@@ -142,15 +154,16 @@
             <ul>
                 <li>Hosted weekly TA hours & lab sessions, answered student’s questions online, and provided
                     feedback during grading</li>
-                <li><a href="http://cs.brown.edu/courses/csci0300/2021/" target="_blank" rel="noopener noreferrer">CSCI
-                        0300 - Fundamentals of Computer Systems (Spring 2021)</a></li>
+                <li><a href="http://cs.brown.edu/courses/csci0300/2021/" target="_blank"
+                        rel="noopener noreferrer"><b>CSCI
+                            0300 - Fundamentals of Computer Systems (Spring 2021)</b></a></li>
                 <ul>
                     <li>Taught in <b>C, C++, x86-64</b></li>
                     <li>Created new projects and modified and tested existing projects for the 2nd offering of the
                         course</li>
                 </ul>
-                <li><a href="https://cs.brown.edu/courses/cs019/2020/" target="_blank" rel="noopener noreferrer">CSCI
-                        0190 - Accelerated Intro to Computer Science (Fall 2020)</a></li>
+                <li><a href="https://cs.brown.edu/courses/cs019/2020/" target="_blank" rel="noopener noreferrer"><b>CSCI
+                            0190 - Accelerated Intro to Computer Science (Fall 2020)</b></a></li>
                 <ul>
                     <li>Taught in <a href="https://code.pyret.org/" target="_blank"
                             rel="noopener noreferrer"><b>Pyret</b></a>
@@ -235,7 +248,8 @@
             Below is a highlight reel from my freshman season as a sabre fencer for Brown's fencing team.
         </div>
         <div class="video-container">
-            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/fINJnrGNaas" title="YouTube video player" frameborder="0"
+            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/fINJnrGNaas"
+                title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
         </div>
