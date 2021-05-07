@@ -354,6 +354,19 @@ a.projects-tab-text:hover {
     }
 }
 
+/* For the navbar */
+@media screen and (max-width: 800px) {
+    #arrow-box {
+        left: 0;
+        width: 100%;
+    }
+
+    #navbar {
+        display: none;
+    }
+}
+
+/* Change the padding of the section containers to be much thinner */
 @media screen and (max-width: 500px) {
     .non-title-container {
         padding: max(30px, 3vh) 30px;
