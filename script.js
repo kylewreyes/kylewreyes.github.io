@@ -18,6 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let section of document.getElementsByTagName("section")) {
       sectionOffsets.push(section.offsetTop);
     }
+
+    const MOBILE_NAVBAR_LIMIT = 800;
+    const MOBILE_NAVBAR_HT = 40;
+    if (window.innerWidth <= MOBILE_NAVBAR_LIMIT) {
+      for (i = 1; i < sectionOffsets.length; ++i) {
+        sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
+      }
+    }
+    console.log(sectionOffsets);
   }
 
   calcSectionOffets();
@@ -30,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * changes which navbar item is highlighted
    */
   function updateNavBar() {
+    // Changes from absolute to fixed position for desktop
     const arrowDownPos = document.getElementById("arrow-box").offsetTop;
     if (window.pageYOffset >= arrowDownPos) {
       navBar.classList.add("sticky");
@@ -41,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       link.classList.remove("active-navbar-link");
     }
 
+    // Updates active section of the navbar
     let i = 1;
     for (; i < sectionOffsets.length; ++i) {
       if (window.pageYOffset < sectionOffsets[i]) {

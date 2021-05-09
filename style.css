@@ -374,6 +374,10 @@ a.projects-tab-text:hover {
         height: calc(100vh - (0.6 * max(6vw, 100px)));
     }
 
+    #fencing {
+        height: calc(100vh - 40px);
+    }
+
     #navbar-header {
         display: flex;
         position: -webkit-sticky;
