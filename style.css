@@ -38,8 +38,6 @@ TODO:
     flex-direction: column;
     justify-content: center; /* centered along main axis (vertically) */
     align-items: center; /* centered along main axis (horizontally) */
-    /* This is so that the background color will also cover oversized content */
-    overflow: auto;
 }
 
 .non-title-container {
@@ -400,6 +398,7 @@ a.projects-tab-text:hover {
     
     #navbar {
         display: none;
+        position: fixed;
         width: 100%;
         left: 0;
         top: 40px;
@@ -408,6 +407,10 @@ a.projects-tab-text:hover {
 
     #navbar a.navbar-link {
         width: 100%;
+    }
+
+    #about, #education, #experience, #projects, #fencing {
+        scroll-margin-top: 40px;
     }
 }
 

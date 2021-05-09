@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function toggleNavBar() {
     toggled = window.getComputedStyle(navBar).getPropertyValue("display");
     if (toggled === "none") {
-      navBar.classList.add("fixed-mobile");
+      navBar.style.display = "block";
     } else {
-      navBar.classList.remove("fixed-mobile");
+      navBar.style.display = "none";
     }
   }
 });
