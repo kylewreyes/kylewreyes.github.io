@@ -5,8 +5,11 @@
  */
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", updateNavBar);
+  // When the viewport is resized, need to recalculate the values at which the
+  // active section becomes highlighted
   window.addEventListener("resize", calcSectionOffets);
 
+  const navBar = document.getElementById("navbar");
   const navBarLinks = document.getElementsByClassName("navbar-link");
   let sectionOffsets = [];
 
@@ -19,13 +22,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
   calcSectionOffets();
 
+  const navBarButton = document.getElementById("navbar-button");
+  navBarButton.addEventListener("click", toggleNavBar);
+
   /**
    * Modifies the navbar from absolute to fixed position and vice versa. Also
    * changes which navbar item is highlighted
    */
   function updateNavBar() {
     const arrowDownPos = document.getElementById("arrow-box").offsetTop;
-    const navBar = document.getElementById("navbar");
     if (window.pageYOffset >= arrowDownPos) {
       navBar.classList.add("sticky");
     } else {
@@ -43,5 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     navBarLinks[i - 1].classList.add("active-navbar-link");
+  }
+
+  function toggleNavBar() {
+    toggled = window.getComputedStyle(navBar).getPropertyValue("display");
+    if (toggled === "none") {
+      navBar.classList.add("fixed-mobile");
+    } else {
+      navBar.classList.remove("fixed-mobile");
+    }
   }
 });
