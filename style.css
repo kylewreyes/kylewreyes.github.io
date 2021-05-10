@@ -305,7 +305,7 @@ a.projects-tab-text:hover {
 
 #fencing {
     background-color: lightgray;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: flex-start;
 }
 
@@ -370,15 +370,17 @@ a.projects-tab-text:hover {
     #arrow-box {
         left: 0;
         width: 100%;
-        position: static;
+        bottom: 0;
     }
 
     #home {
-        height: calc(100vh - (0.6 * max(6vw, 100px)));
+        /* height: calc(100vh - (0.6 * max(6vw, 100px))); */
+        min-height: 100vh;
+        height: -webkit-fill-available;
     }
 
     #fencing {
-        height: calc(100vh - 50px);
+        min-height: calc(100vh - 50px);
     }
 
     #navbar-header {
