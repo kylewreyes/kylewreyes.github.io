@@ -26,7 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
         sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
       }
     }
-    console.log(sectionOffsets);
   }
 
   calcSectionOffets();

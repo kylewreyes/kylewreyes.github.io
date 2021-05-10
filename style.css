@@ -17,6 +17,7 @@ html {
 
 html, body {
     margin: 0;
+    /* height: 100%; */
 }
 
 body { /* For iPhone notch */
@@ -27,12 +28,13 @@ body { /* For iPhone notch */
             env(safe-area-inset-bottom)
             env(safe-area-inset-left);
     min-height: 100vh;
+    /* mobile viewport bug fix */
     min-height: -webkit-fill-available;
 }
 
 /*
 TODO:
- * Mobile navbar
+ * Mobile navbar should be closed 
  */
 
 .section-container {
@@ -401,7 +403,7 @@ a.projects-tab-text:hover {
     
     #navbar {
         display: none;
-        position: fixed;
+        position: sticky;
         width: 100%;
         left: 0;
         top: 50px;
