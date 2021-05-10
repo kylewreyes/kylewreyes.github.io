@@ -376,7 +376,7 @@ a.projects-tab-text:hover {
     #home {
         /* height: calc(100vh - (0.6 * max(6vw, 100px))); */
         min-height: 100vh;
-        height: -webkit-fill-available;
+        /* height: -webkit-fill-available; */
     }
 
     #fencing {
