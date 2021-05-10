@@ -53,8 +53,6 @@ TODO:
 
 #home {
     min-height: 100vh;
-    /* mobile viewport bug fix */
-    min-height: -webkit-fill-available;
     background-color: #292929;
 }
 
