@@ -12,6 +12,7 @@
 
 html {
     scroll-behavior: smooth;
+    height: -webkit-fill-available;
 }
 
 html, body {
@@ -25,6 +26,8 @@ body { /* For iPhone notch */
             env(safe-area-inset-right)
             env(safe-area-inset-bottom)
             env(safe-area-inset-left);
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
 }
 
 /*
@@ -373,7 +376,7 @@ a.projects-tab-text:hover {
     }
 
     #fencing {
-        height: calc(100vh - 40px);
+        height: calc(100vh - 50px);
     }
 
     #navbar-header {
@@ -382,7 +385,7 @@ a.projects-tab-text:hover {
         position: sticky;
         top: 0;
         width: 100%;
-        height: 40px;
+        height: 50px;
         background-color: #292929;
     }
 
@@ -401,7 +404,7 @@ a.projects-tab-text:hover {
         position: fixed;
         width: 100%;
         left: 0;
-        top: 40px;
+        top: 50px;
         z-index: 1;
     }
 
@@ -410,7 +413,7 @@ a.projects-tab-text:hover {
     }
 
     #about, #education, #experience, #projects, #fencing {
-        scroll-margin-top: 40px;
+        scroll-margin-top: 50px;
     }
 }
 

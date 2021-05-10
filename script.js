@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const MOBILE_NAVBAR_LIMIT = 800;
-    const MOBILE_NAVBAR_HT = 40;
+    const MOBILE_NAVBAR_HT = 50;
     if (window.innerWidth <= MOBILE_NAVBAR_LIMIT) {
       for (i = 1; i < sectionOffsets.length; ++i) {
         sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
