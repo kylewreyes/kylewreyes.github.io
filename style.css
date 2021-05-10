@@ -11,8 +11,8 @@
 }
 
 html {
+    height: 100%;
     scroll-behavior: smooth;
-    height: -webkit-fill-available;
 }
 
 html, body {
@@ -26,9 +26,6 @@ body { /* For iPhone notch */
             env(safe-area-inset-right)
             env(safe-area-inset-bottom)
             env(safe-area-inset-left);
-    min-height: 100vh;
-    /* mobile viewport bug fix */
-    min-height: -webkit-fill-available;
 }
 
 /*

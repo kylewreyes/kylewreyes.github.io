@@ -1,9 +1,8 @@
 /**
- * Need to do this before accessing any DOM elements, as it waits for the initial
- * HTML document to load (but not waiting for any stylesheets, images, and
- * subframes to finish loading)
+ * Need to ensure that all the elements are fully loaded before calculating the
+ * offsets.
  */
-document.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("load", function () {
   window.addEventListener("scroll", updateNavBar);
   // When the viewport is resized, need to recalculate the values at which the
   // active section becomes highlighted
