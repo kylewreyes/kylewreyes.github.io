@@ -368,15 +368,16 @@ a.projects-tab-text:hover {
 /* For the navbar */
 @media screen and (max-width: 800px) {
     #arrow-box {
-        left: 0;
+        /* left: 0; */
         width: 100%;
-        bottom: 0;
+        position: static;
+        /* bottom: 0; */
     }
 
     #home {
-        /* height: calc(100vh - (0.6 * max(6vw, 100px))); */
-        min-height: 100vh;
-        /* height: -webkit-fill-available; */
+        min-height: calc(100vh - (0.6 * max(6vw, 100px)));
+        /* min-height: 100vh; */
+        height: -webkit-fill-available;
     }
 
     #fencing {
