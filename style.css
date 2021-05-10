@@ -378,6 +378,11 @@ a.projects-tab-text:hover {
         justify-content: center;
     }
 
+    #home {
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+
     #fencing {
         min-height: calc(100vh - 50px);
     }
