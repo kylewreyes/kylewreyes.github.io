@@ -367,7 +367,7 @@ a.projects-tab-text:hover {
 }
 
 /* For the navbar */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px), screen and (max-height: 450px) {
     #arrow-box {
         position: static;
         width: 100%;
