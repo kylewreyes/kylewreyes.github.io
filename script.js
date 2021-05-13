@@ -1,5 +1,3 @@
-// TODO: desktop navbar disappears on hard refresh
-
 let isMobile;
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -38,38 +36,11 @@ window.addEventListener("DOMContentLoaded", function () {
  * offsets.
  */
 window.addEventListener("load", function () {
+  const MOBILE_NAVBAR_HT = 50;
   const navBar = document.getElementById("navbar");
   const navBarLinks = document.getElementsByClassName("navbar-link");
-
-  window.addEventListener("scroll", updateNavBar);
-  // When the viewport is resized, need to recalculate the values at which the
-  // active section becomes highlighted
-  window.addEventListener("resize", calcSectionOffets);
-  window.addEventListener("resize", updateNavBar);
-  window.addEventListener("resize", showNavBar);
-
-  let sectionOffsets = [];
-  function calcSectionOffets() {
-    sectionOffsets = [];
-    for (let section of document.getElementsByTagName("section")) {
-      const val =
-        window.pageYOffset + Math.floor(section.getBoundingClientRect().top);
-      sectionOffsets.push(val);
-    }
-
-    const MOBILE_NAVBAR_HT = 50;
-    if (isMobile) {
-      for (i = 1; i < sectionOffsets.length; ++i) {
-        sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
-      }
-    }
-  }
-
-  calcSectionOffets();
-  updateNavBar();
-
   const navBarButton = document.getElementById("navbar-button");
-  navBarButton.addEventListener("click", toggleNavBar);
+  let sectionOffsets = [];
 
   /**
    * Modifies the navbar from absolute to fixed position and vice versa. Also
@@ -78,8 +49,7 @@ window.addEventListener("load", function () {
   function updateNavBar() {
     // Changes from absolute to fixed position for desktop
     if (isMobile) {
-      const arrowDownPos = document.getElementById("navbar-header").offsetTop;
-      if (window.pageYOffset >= arrowDownPos) {
+      if (window.pageYOffset >= document.documentElement.clientHeight) {
         navBar.classList.add("sticky");
       } else {
         navBar.classList.remove("sticky");
@@ -107,6 +77,25 @@ window.addEventListener("load", function () {
     navBarLinks[i - 1].classList.add("active-navbar-link");
   }
 
+  /**
+   * Calculates the respective y positions of each section, which is used to
+   * highlight the current section on the navbar
+   */
+  function calcSectionOffets() {
+    sectionOffsets = [];
+    for (let section of document.getElementsByTagName("section")) {
+      const val =
+        window.pageYOffset + Math.floor(section.getBoundingClientRect().top);
+      sectionOffsets.push(val);
+    }
+
+    if (isMobile) {
+      for (i = 1; i < sectionOffsets.length; ++i) {
+        sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
+      }
+    }
+  }
+
   /** When resizing, need to ensure that the navbar switches appropriately
    * (through the media queries), but that requires removing the styling from
    * the JS, which takes higher precedence.
@@ -131,4 +120,23 @@ window.addEventListener("load", function () {
       navBar.style.display = "none";
     }
   }
+
+  // Closes the mobile navbar after clicking one of the items
+  if (isMobile) {
+    for (let link of navBarLinks) {
+      link.addEventListener("click", () => {
+        navBar.style.display = "none";
+      });
+    }
+  }
+
+  calcSectionOffets();
+  updateNavBar();
+  window.addEventListener("scroll", updateNavBar);
+  // When the viewport is resized, need to recalculate the values at which the
+  // active section becomes highlighted
+  window.addEventListener("resize", calcSectionOffets);
+  window.addEventListener("resize", updateNavBar);
+  window.addEventListener("resize", showNavBar);
+  navBarButton.addEventListener("click", toggleNavBar);
 });
