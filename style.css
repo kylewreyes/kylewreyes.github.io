@@ -427,7 +427,7 @@ a.projects-tab-text:hover {
 
     #about, #education, #experience, #projects, #fencing {
         padding-top: 70px;
-        /*  */
+        /* The feature below is not supported by < iOS 14.5 */
         /* scroll-margin-top: 50px; */
     }
 }
