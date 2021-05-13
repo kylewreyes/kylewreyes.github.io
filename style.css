@@ -124,7 +124,6 @@ h1 {
     width: max(6vw, 100px);
     color: white;
     height: calc(0.6 * max(6vw, 100px)); /* To preserve aspect ratio */
-    max-height: calc((100 * var(--vh) - 50px) / 6);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -424,6 +423,7 @@ a.projects-tab-text:hover {
 
     #navbar a.navbar-link {
         width: 100%;
+        max-height: calc((100 * var(--vh) - 50px) / 6);
     }
 
     #about, #education, #experience, #projects, #fencing {
