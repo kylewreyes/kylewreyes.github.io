@@ -84,8 +84,12 @@ window.addEventListener("load", function () {
   function calcSectionOffets() {
     sectionOffsets = [];
     for (let section of document.getElementsByTagName("section")) {
-      const val =
+      let val =
         window.pageYOffset + Math.floor(section.getBoundingClientRect().top);
+      // Anchor tags can be a little off, so we include a margin
+      if (val >= 1) {
+        val -= 1;
+      }
       sectionOffsets.push(val);
     }
 
@@ -94,6 +98,7 @@ window.addEventListener("load", function () {
         sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
       }
     }
+    console.log("Section Offsets: ", sectionOffsets);
   }
 
   /** When resizing, need to ensure that the navbar switches appropriately
