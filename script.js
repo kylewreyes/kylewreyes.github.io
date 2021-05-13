@@ -98,7 +98,6 @@ window.addEventListener("load", function () {
         sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
       }
     }
-    console.log("Section Offsets: ", sectionOffsets);
   }
 
   /** When resizing, need to ensure that the navbar switches appropriately

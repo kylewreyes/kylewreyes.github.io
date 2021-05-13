@@ -55,7 +55,7 @@ TODO:
     browser bar is minimized, but the home page will always be viewed with the
     browser bar, so we use the CSS variable --vh, which is calculated in the JS
     */
-    height: calc(100 * var(--vh));
+    min-height: calc(100 * var(--vh));
     background-color: #292929;
 }
 
@@ -124,6 +124,7 @@ h1 {
     width: max(6vw, 100px);
     color: white;
     height: calc(0.6 * max(6vw, 100px)); /* To preserve aspect ratio */
+    max-height: calc((100 * var(--vh) - 50px) / 6);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -429,6 +430,12 @@ a.projects-tab-text:hover {
         padding-top: 70px;
         /* The feature below is not supported by < iOS 14.5 */
         /* scroll-margin-top: 50px; */
+    }
+
+    @media (max-height: 415px) {
+        #navbar a.navbar-link {
+            
+        }
     }
 }
 
