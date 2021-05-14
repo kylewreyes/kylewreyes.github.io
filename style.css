@@ -30,11 +30,6 @@ body { /* For iPhone notch */
             env(safe-area-inset-left);
 }
 
-/*
-TODO:
- * Mobile navbar should be closed
- */
-
 .section-container {
     min-width: 100%;
     display: flex;
@@ -430,12 +425,6 @@ a.projects-tab-text:hover {
         padding-top: 70px;
         /* The feature below is not supported by < iOS 14.5 */
         /* scroll-margin-top: 50px; */
-    }
-
-    @media (max-height: 415px) {
-        #navbar a.navbar-link {
-            
-        }
     }
 }
 

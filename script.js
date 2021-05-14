@@ -1,6 +1,12 @@
-let isMobile;
-
 window.addEventListener("DOMContentLoaded", function () {
+  const navBar = document.getElementById("navbar");
+  const navBarLinks = document.getElementsByClassName("navbar-link");
+  const navBarButton = document.getElementById("navbar-button");
+  const sections = document.getElementsByTagName("section");
+  const arrowLink = document.getElementById("arrow-box");
+  let sectionOffsets = [];
+  let isMobile;
+
   /**
    * Checks if a given screen will be using the mobile or desktop navbar
    */
@@ -8,6 +14,7 @@ window.addEventListener("DOMContentLoaded", function () {
     isMobile =
       document.documentElement.clientWidth <= 800 ||
       document.documentElement.clientHeight <= 450;
+    console.log("It is now ", isMobile);
   }
 
   /**
@@ -24,23 +31,6 @@ window.addEventListener("DOMContentLoaded", function () {
         document.documentElement.clientHeight / 100 + "px"
       );
   }
-
-  calculateMobileHt();
-  checkMobileOrDesktop();
-  window.addEventListener("resize", calculateMobileHt);
-  window.addEventListener("resize", checkMobileOrDesktop);
-});
-
-/*
- * Need to ensure that all the elements are fully loaded before calculating the
- * offsets.
- */
-window.addEventListener("load", function () {
-  const MOBILE_NAVBAR_HT = 50;
-  const navBar = document.getElementById("navbar");
-  const navBarLinks = document.getElementsByClassName("navbar-link");
-  const navBarButton = document.getElementById("navbar-button");
-  let sectionOffsets = [];
 
   /**
    * Modifies the navbar from absolute to fixed position and vice versa. Also
@@ -63,11 +53,10 @@ window.addEventListener("load", function () {
       }
     }
 
+    // Updates active section of the navbar
     for (link of navBarLinks) {
       link.classList.remove("active-navbar-link");
     }
-
-    // Updates active section of the navbar
     let i = 1;
     for (; i < sectionOffsets.length; ++i) {
       if (window.pageYOffset < sectionOffsets[i]) {
@@ -82,14 +71,12 @@ window.addEventListener("load", function () {
    * highlight the current section on the navbar
    */
   function calcSectionOffets() {
+    const MOBILE_NAVBAR_HT = 50;
     sectionOffsets = [];
     for (let section of document.getElementsByTagName("section")) {
-      let val =
-        window.pageYOffset + Math.floor(section.getBoundingClientRect().top);
-      // Anchor tags can be a little off, so we include a margin
-      if (val >= 1) {
-        val -= 1;
-      }
+      let val = Math.floor(
+        window.pageYOffset + section.getBoundingClientRect().top
+      );
       sectionOffsets.push(val);
     }
 
@@ -98,6 +85,14 @@ window.addEventListener("load", function () {
         sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
       }
     }
+    console.log("before", sectionOffsets);
+    for (i = 1; i < sectionOffsets.length; ++i) {
+      // Anchor tags can be a little off, so we include a margin
+      if (sectionOffsets[i] >= 1) {
+        sectionOffsets[i] -= 1;
+      }
+    }
+    console.log("Section Offsets: " + sectionOffsets);
   }
 
   /** When resizing, need to ensure that the navbar switches appropriately
@@ -125,22 +120,52 @@ window.addEventListener("load", function () {
     }
   }
 
-  // Closes the mobile navbar after clicking one of the items
-  if (isMobile) {
-    for (let link of navBarLinks) {
-      link.addEventListener("click", () => {
-        navBar.style.display = "none";
-      });
+  /**
+   * Hides the navbar after clicking one of its elements. Used for mobile
+   */
+  function hideNavBar() {
+    navBar.style.display = "none";
+  }
+
+  /**
+   * Adds and removes the event listeners on each navbar link that calls
+   * hideNavBar()
+   */
+  function updateNavBarListeners() {
+    if (isMobile) {
+      for (let link of navBarLinks) {
+        link.addEventListener("click", hideNavBar);
+      }
+    } else {
+      for (let link of navBarLinks) {
+        link.removeEventListener("click", hideNavBar);
+      }
     }
   }
 
+  calculateMobileHt();
+  checkMobileOrDesktop();
   calcSectionOffets();
   updateNavBar();
+  updateNavBarListeners();
+  window.addEventListener("resize", calculateMobileHt);
+  window.addEventListener("resize", checkMobileOrDesktop);
   window.addEventListener("scroll", updateNavBar);
   // When the viewport is resized, need to recalculate the values at which the
   // active section becomes highlighted
   window.addEventListener("resize", calcSectionOffets);
   window.addEventListener("resize", updateNavBar);
   window.addEventListener("resize", showNavBar);
+  window.addEventListener("resize", updateNavBarListeners);
   navBarButton.addEventListener("click", toggleNavBar);
+
+  // Handle smooth scrolling for iOS
+  arrowLink.addEventListener("click", () => {
+    sections[1].scrollIntoView({ behavior: "smooth" });
+  });
+  for (let i = 0; i < navBarLinks.length; i++) {
+    navBarLinks[i].addEventListener("click", () => {
+      sections[i].scrollIntoView({ behavior: "smooth" });
+    });
+  }
 });
