@@ -50,7 +50,7 @@ body { /* For iPhone notch */
     browser bar is minimized, but the home page will always be viewed with the
     browser bar, so we use the CSS variable --vh, which is calculated in the JS
     */
-    min-height: calc(100 * var(--vh));
+    height: calc(100 * var(--vh));
     background-color: #292929;
 }
 
@@ -71,7 +71,7 @@ body { /* For iPhone notch */
 h1 {
     font-family: Bebas Neue Regular, sans-serif;
     letter-spacing: 0.3vw;
-    font-size: clamp(10rem, 10rem + 3vw, 20rem);
+    font-size: clamp(10rem, 10rem + 1.5vmin, 20rem);
     color: #DB162F;
     margin-top: 0;
     margin-bottom: 0;
@@ -107,11 +107,15 @@ h1 {
 #navbar {
     background-color: #292929;
     width: max(6vw, 100px);
-    display: flex;
+    
     flex-direction: column;
     text-align: center;
     font-family: Bebas Neue Regular, sans-serif;
     font-size: clamp(1.5rem, 1.5rem + 0.2vw, 3rem);
+}
+
+.default-navbar-pos {
+    display: flex;
 }
 
 /* Need to be more specific to override a:link */
@@ -394,6 +398,10 @@ a.projects-tab-text:hover {
         border: none;
     }
 
+    #navbar-button:active #navbar {
+        background-color: red;
+    }
+
     #navbar-button-logo {
         color: white;
         font-size: 1.5rem;
@@ -411,9 +419,20 @@ a.projects-tab-text:hover {
     
     #navbar {
         display: none;
+        overflow: hidden;
         width: 100%;
         left: 0;
         z-index: 1;
+    }
+
+    .default-navbar-pos {
+        height: 0;
+        transition: height 500ms ease 0ms;
+    }
+
+    .open-navbar {
+        height: calc(6 * 0.6 * max(6vw, 100px));
+        max-height: calc((100 * var(--vh) - 50px)); /* Needs to be a fixed height for this to work*/
     }
 
     #navbar a.navbar-link {

@@ -112,11 +112,21 @@ window.addEventListener("DOMContentLoaded", function () {
    * Switches the mobile navbar from being visible or not
    */
   function toggleNavBar() {
-    const toggled = window.getComputedStyle(navBar).getPropertyValue("display");
-    if (toggled === "none") {
-      navBar.style.display = "block";
+    if (navBar.classList.contains("open-navbar")) {
+      navBar.classList.remove("open-navbar");
+      // Before removing the element from the document flow, we need to let the
+      // transition finish (500 ms) first
+      window.setTimeout(() => {
+        navBar.style.display = "none";
+      }, 500);
     } else {
-      navBar.style.display = "none";
+      navBar.style.display = "block";
+      // For the transition to appear, the element needs to be in the document
+      // flow. So, we change the display first and then let the transition
+      // happen
+      window.setTimeout(() => {
+        navBar.classList.add("open-navbar");
+      }, 1);
     }
   }
 
@@ -125,6 +135,7 @@ window.addEventListener("DOMContentLoaded", function () {
    */
   function hideNavBar() {
     navBar.style.display = "none";
+    navBar.classList.remove("open-navbar");
   }
 
   /**
