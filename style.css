@@ -93,6 +93,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 #navbar-header {
@@ -102,12 +103,25 @@ h1 {
 #arrow-down {
     color: black;
     font-size: clamp(2rem, 1.5rem + 0.2vw, 4rem);
+    animation-name: up-and-down;
+    animation-duration: 0.75s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes up-and-down {
+    from {
+        padding-top: 0;
+      }
+    
+      to {
+        padding-top: 20px;
+      }
 }
 
 #navbar {
     background-color: #292929;
     width: max(6vw, 100px);
-    
     flex-direction: column;
     text-align: center;
     font-family: Bebas Neue Regular, sans-serif;

@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", function () {
     isMobile =
       document.documentElement.clientWidth <= 800 ||
       document.documentElement.clientHeight <= 450;
-    console.log("It is now ", isMobile);
   }
 
   /**
@@ -92,7 +91,6 @@ window.addEventListener("DOMContentLoaded", function () {
         sectionOffsets[i] -= 1;
       }
     }
-    console.log("Section Offsets: " + sectionOffsets);
   }
 
   /** When resizing, need to ensure that the navbar switches appropriately
