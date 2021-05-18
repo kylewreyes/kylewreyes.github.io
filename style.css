@@ -162,7 +162,7 @@ h1 {
 
 .absolute {
     position: absolute;
-    top: 100vh;
+    top: calc(100 * var(--vh));
     left: 6.5vw;
 }
 
