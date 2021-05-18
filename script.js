@@ -1,11 +1,11 @@
+let isMobile;
+
 window.addEventListener("DOMContentLoaded", function () {
   const navBar = document.getElementById("navbar");
   const navBarLinks = document.getElementsByClassName("navbar-link");
   const navBarButton = document.getElementById("navbar-button");
   const sections = document.getElementsByTagName("section");
   const arrowLink = document.getElementById("arrow-box");
-  let sectionOffsets = [];
-  let isMobile;
 
   /**
    * Checks if a given screen will be using the mobile or desktop navbar
@@ -29,68 +29,6 @@ window.addEventListener("DOMContentLoaded", function () {
         "--vh",
         document.documentElement.clientHeight / 100 + "px"
       );
-  }
-
-  /**
-   * Modifies the navbar from absolute to fixed position and vice versa. Also
-   * changes which navbar item is highlighted
-   */
-  function updateNavBar() {
-    // Changes from absolute to fixed position for desktop
-    if (isMobile) {
-      if (window.pageYOffset >= document.documentElement.clientHeight) {
-        navBar.classList.add("sticky");
-      } else {
-        navBar.classList.remove("sticky");
-      }
-    } else {
-      const arrowDownPos = document.getElementById("arrow-box").offsetTop;
-      if (window.pageYOffset >= arrowDownPos) {
-        navBar.classList.add("sticky");
-      } else {
-        navBar.classList.remove("sticky");
-      }
-    }
-
-    // Updates active section of the navbar
-    for (link of navBarLinks) {
-      link.classList.remove("active-navbar-link");
-    }
-    let i = 1;
-    for (; i < sectionOffsets.length; ++i) {
-      if (window.pageYOffset < sectionOffsets[i]) {
-        break;
-      }
-    }
-    navBarLinks[i - 1].classList.add("active-navbar-link");
-  }
-
-  /**
-   * Calculates the respective y positions of each section, which is used to
-   * highlight the current section on the navbar
-   */
-  function calcSectionOffets() {
-    const MOBILE_NAVBAR_HT = 50;
-    sectionOffsets = [];
-    for (let section of document.getElementsByTagName("section")) {
-      let val = Math.floor(
-        window.pageYOffset + section.getBoundingClientRect().top
-      );
-      sectionOffsets.push(val);
-    }
-
-    if (isMobile) {
-      for (i = 1; i < sectionOffsets.length; ++i) {
-        sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
-      }
-    }
-    console.log("before", sectionOffsets);
-    for (i = 1; i < sectionOffsets.length; ++i) {
-      // Anchor tags can be a little off, so we include a margin
-      if (sectionOffsets[i] >= 1) {
-        sectionOffsets[i] -= 1;
-      }
-    }
   }
 
   /** When resizing, need to ensure that the navbar switches appropriately
@@ -154,16 +92,9 @@ window.addEventListener("DOMContentLoaded", function () {
 
   calculateMobileHt();
   checkMobileOrDesktop();
-  calcSectionOffets();
-  updateNavBar();
   updateNavBarListeners();
   window.addEventListener("resize", calculateMobileHt);
   window.addEventListener("resize", checkMobileOrDesktop);
-  window.addEventListener("scroll", updateNavBar);
-  // When the viewport is resized, need to recalculate the values at which the
-  // active section becomes highlighted
-  window.addEventListener("resize", calcSectionOffets);
-  window.addEventListener("resize", updateNavBar);
   window.addEventListener("resize", showNavBar);
   window.addEventListener("resize", updateNavBarListeners);
   navBarButton.addEventListener("click", toggleNavBar);
@@ -177,4 +108,84 @@ window.addEventListener("DOMContentLoaded", function () {
       sections[i].scrollIntoView({ behavior: "smooth" });
     });
   }
+});
+
+// Need to calculate offsets only after page is loaded because images will be
+// fully rendered
+window.addEventListener("load", () => {
+  const navBar = document.getElementById("navbar");
+  const navBarLinks = document.getElementsByClassName("navbar-link");
+  let sectionOffsets = [];
+
+  /**
+   * Calculates the respective y positions of each section, which is used to
+   * highlight the current section on the navbar
+   */
+  function calcSectionOffets() {
+    const MOBILE_NAVBAR_HT = 50;
+    sectionOffsets = [];
+    for (let section of document.getElementsByTagName("section")) {
+      let val = Math.floor(
+        window.pageYOffset + section.getBoundingClientRect().top
+      );
+      sectionOffsets.push(val);
+    }
+
+    if (isMobile) {
+      for (i = 1; i < sectionOffsets.length; ++i) {
+        sectionOffsets[i] = sectionOffsets[i] - MOBILE_NAVBAR_HT;
+      }
+    }
+    console.log("before", sectionOffsets);
+    // Sometimes, the first offset is -1, not sure why
+    sectionOffsets[0] = 0;
+    for (i = 1; i < sectionOffsets.length; ++i) {
+      // Anchor tags can be a little off, so we include a margin
+      if (sectionOffsets[i] >= 1) {
+        sectionOffsets[i] -= 1;
+      }
+    }
+  }
+
+  /**
+   * Modifies the navbar from absolute to fixed position and vice versa. Also
+   * changes which navbar item is highlighted
+   */
+  function updateNavBar() {
+    // Changes from absolute to fixed position for desktop
+    if (isMobile) {
+      if (window.pageYOffset >= document.documentElement.clientHeight) {
+        navBar.classList.add("sticky");
+      } else {
+        navBar.classList.remove("sticky");
+      }
+    } else {
+      const arrowDownPos = document.getElementById("arrow-box").offsetTop;
+      if (window.pageYOffset >= arrowDownPos) {
+        navBar.classList.add("sticky");
+      } else {
+        navBar.classList.remove("sticky");
+      }
+    }
+
+    // Updates active section of the navbar
+    for (link of navBarLinks) {
+      link.classList.remove("active-navbar-link");
+    }
+    let i = 1;
+    for (; i < sectionOffsets.length; ++i) {
+      if (window.pageYOffset < sectionOffsets[i]) {
+        break;
+      }
+    }
+    navBarLinks[i - 1].classList.add("active-navbar-link");
+  }
+
+  calcSectionOffets();
+  updateNavBar();
+  window.addEventListener("scroll", updateNavBar);
+  // When the viewport is resized, need to recalculate the values at which the
+  // active section becomes highlighted
+  window.addEventListener("resize", calcSectionOffets);
+  window.addEventListener("resize", updateNavBar);
 });
